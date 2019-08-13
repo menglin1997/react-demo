@@ -1,8 +1,8 @@
-## 介绍
+##介绍
 本项目主要搭建一个项目 可以让项目跑起来
 用到了react，react-dom，antd, babel,以及跑起来需要用到的一些loader等等
 后边的文章会有怎么使用antd 路由跳转等等
-## 项目结构
+##项目结构
 建立文件目录结构
 ````
 - test //我的目录名字
@@ -19,44 +19,44 @@
       - index.js    // 项目入口文件 相当于Vue中的main.js
     - webpack.config.js // webpack 配置文件
 ````
-## 初始化项目
+##初始化项目
 在项目的根目录下打开命令行，输入：
 ````
 npm init -y 项目初始化, 生成  `package.json` 文件 
 ````
-## 安装webpack的包
+##安装webpack的包
 ````
 npm i webpack webpack-cli webpack-command --save-dev
 ````
 这里直接将webpack 的三个基本项安装好
-##### --save-dev与--save的区别
+#####--save-dev与--save的区别
 `--save-dev`表示只是在编译过程中所依赖的包，例如：webpack、sass-loader等 最后在package.json的devDependencies部分显示
 `--save` 表示编译后在运行时还需要依赖的包，例如 react react-dom等 最后在package.json的dependencies部分显示
-##### 指定安装webpack的版本
+#####指定安装webpack的版本
 ````
 npm install --save-dev webpack@[version] //version代表版本号
 ````
-## webpack 服务器 webpack-dev-server,让启动更方便
+##webpack 服务器 webpack-dev-server,让启动更方便
 ````
 npm i --save-dev webpack-dev-server
 ````
 
-## 安装其他webpack的插件
-### 自动创建html文件 html-webpack-plugin
+##安装其他webpack的插件
+###自动创建html文件 html-webpack-plugin
 ````
 npm i --save-dev  html-webpack-plugin
 ````
-### 清除无用文件 clean-webpack-plugin,将每次打包多余的文件删除
+###清除无用文件 clean-webpack-plugin,将每次打包多余的文件删除
 ````
 npm i --save-dev clean-webpack-plugin
 ````
-### 样式编译loader插件
+###样式编译loader插件
 ````
 npm i --save-dev style-loader css-loader  // css相关loader
 npm i --save-dev node-sass sass-loader  // scss 相关loader
 npm i --save-dev file-loader url-loader // 加载其他文件，比如图片，字体
 ````
-## 根目录创建`webpack.config.js`文件,里面代码如下
+##根目录创建`webpack.config.js`文件,里面代码如下
 ````
 const path = require('path');
 const webpack = require('webpack');
@@ -116,7 +116,7 @@ module.exports = {
 ````
 --open为自动打开浏览器
 
-## 编写index.html文件
+##编写index.html文件
 ````
 <!DOCTYPE html>
 <html lang="en">
@@ -129,16 +129,16 @@ module.exports = {
 </body>
 </html>
 ````
-## src/index.js文件
+##src/index.js文件
 ````
 console.log('hi')
 ````
-## 运行
+##运行
 ````
 npm run dev
 ````
-## 在项目中运用React
-#### 安装react 的东西,以及antd
+##在项目中运用React
+####安装react 的东西,以及antd
 ````
 npm i --save react react-dom antd
 ````
@@ -148,7 +148,7 @@ npm i --save-dev @babel/core @babel/cli @babel/preset-env @babel/preset-react  @
 npm i --save @babel/polyfill
 npm i --save-dev babel-loader
 ````
-## 修改webpack.config.js配置
+##修改webpack.config.js配置
 在rules中加入：
  ````
 //这个是为了转换js
@@ -208,7 +208,7 @@ const HtmlPlugin = require('html-webpack-plugin');
     ]
 }
 ````
-## 配置babel,在根目录下添加文件 `.babelrc`
+##配置babel,在根目录下添加文件 `.babelrc`
 文件里面完整代码为:
 ````
 {
@@ -222,7 +222,7 @@ const HtmlPlugin = require('html-webpack-plugin');
 }
 
 ````
-## 编写App.js文件
+##编写App.js文件
 ````
 import React,{Component} from 'react';
 
@@ -245,7 +245,7 @@ export default App;
 
 // ReactDom.render(<App />,document.getElementById('root'));
 ````
-## 根目录创建App.scss文件，并编写App.scss
+##根目录创建App.scss文件，并编写App.scss
 ````
 .main {
   background: pink;
@@ -257,11 +257,11 @@ export default App;
   }
 }
 ````
-## 将样式文件引入App.js
+##将样式文件引入App.js
 ````
 import './App.scss'
 ````
-## 编写index.js
+##编写index.js
 ````
 import React from 'react';
 import ReactDOM from 'react-dom';

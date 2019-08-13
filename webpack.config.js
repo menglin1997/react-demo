@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 // const nodeExternals = require('webpack-node-externals');
  module.exports = {
     devtool: 'inline-source-map',
@@ -42,6 +43,7 @@ const HtmlPlugin = require('html-webpack-plugin');
         new webpack.HotModuleReplacementPlugin(),
         new HtmlPlugin({
             template: 'src/index.html'
-        })
+        }),
+        new ExtractTextPlugin("styles.css")
     ]
 }
